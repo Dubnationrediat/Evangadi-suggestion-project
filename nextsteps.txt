@@ -1,0 +1,20 @@
+
+
+Regarding frontend
+
+make the home page attractive
+
+    header and footer using evangadi page (task to sari)
+    coloring using evangadi platform coloring (task to sari)
+    clickable choices should have effects on hover and on click (task to sari)
+    background picture or color (some what decent and attractive) (task to sari)
+    using Table npm package for the datas shoing page and make it attractive (task to sari)
+    all buttons should onside(being in the same line with the post) with specific section 
+    add color future or confirming future for corrected suggestions (task to rediat)
+    log in authentication ... incretion and salting  (task to rediat)
+
+Regarding backend 
+      answer page fetching and attaching to the specific question (task to rediat)
+      database for answer collection or add a colum for answer in the student database (task to rediat)
+      log in authentication ....incretion and salting (task to rediat)
+      notification email to aduga....
