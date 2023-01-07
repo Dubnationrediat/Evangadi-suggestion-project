@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./ForStaff.css";
 import axios from 'axios';
-// import nodem from 'nodemailer'
-// import {sendEmail} from '../emailFunctionality/emailControler.js'
+// import node from 'nodemailer'
+// import {sendEmail} from '../emailFunctionality/emailController.js'
+
 function fromStuff() {
-let server = "http://localhost:3456"
-let url = `${server}/user/postQuery`
+let server = "http://localhost:3456";
+let url = `${server}/user/postQuery`;
+
 const [formData, setFormData] = useState({
   forwarded_from :"",
   phase:"",
@@ -29,34 +31,32 @@ let submitHandler = (e)=>{
     method: "post",
     url,
     data: fd,
-    headers: { "Content-Type": "multipart/form-data" },
+    headers: {"Content-Type": "multipart/form-data" },
   }).then((data)=>{
     console.log(data)
   }).catch((err)=>{
     console.log(err)
   })
-
 }
 
 let inputHandler = (e)=>{
   switch (e.target.name) {
     case "forwarded_from": setFormData((pre)=>{return {...pre,forwarded_from:e.target.value}})
       break;
-    case "phase": setFormData((pre)=>{return {...pre,phase:e.target.value}})
+    case "phase": setFormData((pre)=>{return {...pre,phase:e.target.value}});
       break;
-    case "title_of_the_course": setFormData((pre)=>{return {...pre,title_of_the_course:e.target.value}})
+    case "title_of_the_course": setFormData((pre)=>{return {...pre,title_of_the_course:e.target.value}});
       break;
-    case "correction_is_on": setFormData((pre)=>{return {...pre,correction_is_on:e.target.value}})
+    case "correction_is_on": setFormData((pre)=>{return {...pre,correction_is_on:e.target.value}});
       break;
-    case "note_on_correction": setFormData((pre)=>{return {...pre,note_on_correction:e.target.value}})
+    case "note_on_correction": setFormData((pre)=>{return {...pre,note_on_correction:e.target.value}});
       break;
-    case "screenshot1": setFormData((pre)=>{return {...pre,screenshot1:  e.target.files[0]}})
+    case "screenshot1": setFormData((pre)=>{return {...pre,screenshot1:  e.target.files[0]}});
       break;
     default:
       break;
   }
-}
-
+};
 
   return (
     <div className="staffAkafiMother container py-2 my-2 ">
@@ -216,7 +216,6 @@ let inputHandler = (e)=>{
             </select>
           </div>
           </div>
-         
           <div>
             <textarea
               type="text"
