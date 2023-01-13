@@ -1,4 +1,4 @@
-import mysql from "mysql";
+import mysql from "mysql2";
 import express from "express";
 import createRoute from './Routes/create.js'
 import cors from 'cors'

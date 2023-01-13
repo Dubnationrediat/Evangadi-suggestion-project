@@ -26,4 +26,4 @@ const uploadFromStudent = multer({
 
 
 
-export default uploadFromStudent.single('file');
+export default uploadFromStudent.single('screenshot2');

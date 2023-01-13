@@ -5,7 +5,7 @@ let createqueryTable = `CREATE TABLE if not exists forQuery(
     title_of_the_course varchar(255) not null,
     correction_is_on varchar(255) not null,
     note_on_correction varchar(255) not null,
-    screenshot1 longblob,
+    screenshot1 varchar(255),
     PRIMARY KEY (forQuery)
     )`
 

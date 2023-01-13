@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./ForStaff.css";
 import axios from 'axios';
-// import node from 'nodemailer'
-// import {sendEmail} from '../emailFunctionality/emailController.js'
 
+import nodemailer from 'nodemailer';
 function fromStuff() {
 let server = "http://localhost:3456";
 let url = `${server}/user/postQuery`;
+
+const [response, setResponce] = useState();
 
 const [formData, setFormData] = useState({
   forwarded_from :"",
@@ -24,7 +25,7 @@ let submitHandler = (e)=>{
   fd.append('title_of_the_course',formData.title_of_the_course)
   fd.append('phase',formData.phase)
   fd.append('correction_is_on',formData.correction_is_on)
-  fd.append('note_on_correction',formData.correction_is_on)
+  fd.append('note_on_correction',formData.note_on_correction)
   fd.append('screenshot1',formData.screenshot1)
 
   axios({
@@ -34,6 +35,7 @@ let submitHandler = (e)=>{
     headers: {"Content-Type": "multipart/form-data" },
   }).then((data)=>{
     console.log(data)
+    setResponce(data.data)
   }).catch((err)=>{
     console.log(err)
   })
@@ -58,8 +60,17 @@ let inputHandler = (e)=>{
   }
 };
 
-  return (
-    <div className="staffAkafiMother container py-2 my-2 ">
+if(response){
+  // return  [<h1 className="">{response.forThanking}</h1>,<a href="">{response.forHomePageReturn}</a>]
+  return <div className="forSuccessPage">
+              <h1 className="thankYou">{response.forThanking}</h1>
+              <a className="thankYouAnch" href="/home">{response.forHomePageReturn}</a>
+         </div>
+ 
+}else{
+
+return (
+<div className="staffAkafiMother container py-2 my-2 ">
       <div className="d-sm-row d-md-flex  staffAkafi">
       {/* action="http://localhost:3456/user/postQuery" method="POST" */}
         <form onSubmit={submitHandler} >
@@ -221,21 +232,21 @@ let inputHandler = (e)=>{
               type="text"
               name="note_on_correction"
               placeholder="your comment here"
-              required
               onChange={inputHandler}
+              required
             />
           </div>
           <div className="labelAkafi">
           <label className="label" htmlFor="fileUpload">Upload Picture</label>
+          <h6>Picture Upload Is Mandatory</h6>
           <input
               onChange={inputHandler}
                 id="fileUpload"
                 name="screenshot1"
                 type="file"
                 accept="image/png"
+                required
               />
-           
-
           </div>
           <div className="">
             <button className="btnStaff" type="submit">Submit</button>
@@ -248,6 +259,7 @@ let inputHandler = (e)=>{
       </div>
     </div>
   );
+}
 }
 
 export default fromStuff;

@@ -87,3 +87,21 @@ input[type]{
 };
 
 
+.thankYouAnch{
+    display: block;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20%;
+ }
+ .thankYou{
+     margin-top: 10%;
+    text-align: center;
+ 
+ }
+ 
+ .forSuccessPage{
+   height: 100vh;
+ }

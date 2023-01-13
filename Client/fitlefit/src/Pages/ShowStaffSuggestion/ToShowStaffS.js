@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ToShowStaff.css";
 function ToShowStaffS() {
+
   const [staff, setStaff] = useState([]);
+
   const [forImage, setforImage] = useState([]);
+
   let urlForStaff = "http://localhost:3456/user/getStaffData";
+  
   const dataFromStaffes = async () => {
     try {
       const responceForStaff = await axios.get(urlForStaff);

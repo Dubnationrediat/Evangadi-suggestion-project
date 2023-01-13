@@ -1,8 +1,6 @@
 import express from 'express';
 import Econnection from "../server.js";
 
-
-  
   let allFromStudent = (req,res,next)=>{
     let allDatafromStudent = "SELECT * FROM studentinfo"
 
