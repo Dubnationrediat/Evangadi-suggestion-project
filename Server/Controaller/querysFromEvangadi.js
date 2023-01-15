@@ -1,11 +1,13 @@
 import Econnection  from "../server.js";
 import nodemailer from 'nodemailer'
 let postInfo = (req,res)=>{
+    console.log(req.body)
 
     if(req.file){
         let imagePath = req.file.filename;
         
         const {forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction} = req.body;
+
         
         let values = [forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,imagePath];
         
@@ -32,7 +34,8 @@ let postInfo = (req,res)=>{
                         from :"red.terefe@gmail.com",
                         to : "rediatandualeme@gmail.com",
                         subject:"correction notice!",
-                        text:"new information regarding errors and improvement on documents  is uploaded BY EVANGADI STAFF REGARDING TEACHING MATERIAL please visit the site www.google.com "
+                        text:`New Update Request Was Uploaded By "${forwarded_from}" : The Request Is On "${phase}'s" Document Titled "${title_of_the_course}"
+                        Please Respond To The Request. Thank You!`
                     };
                     
                     mailSender.sendMail(details,(err)=>{
@@ -45,7 +48,6 @@ let postInfo = (req,res)=>{
                     }
                     
                     sendEmail()
-                // res.send(`Uploaded successfully,Thank you!\n <a href="/home">Back To Home Page</a>`)
                 res.send({
                     forThanking : `Uploaded successfully,Thank you!`,
                     forHomePageReturn: `Click Here To Go Back To Home Page`

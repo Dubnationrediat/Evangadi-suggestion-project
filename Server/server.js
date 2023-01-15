@@ -10,7 +10,8 @@ let app = express();
 // support middleware
 app.use(express.json()); 
 app.use(express.urlencoded( {extended: true }));
-app.use(express.static("uploads"))
+app.use(express.static("Public/ImageFromStaff/"))
+app.use(express.static("Public/ImageFromStudent/"))
 app.use(cors());
 // main routes
 app.use('/user',createRoute)

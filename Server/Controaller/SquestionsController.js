@@ -33,7 +33,8 @@ let postInfo = (req,res)=>{
                         from :"red.terefe@gmail.com",
                         to : "rediatandualeme@gmail.com",
                         subject:"correction notice!",
-                        text:"new question is  uploaded BY EVANGADI STAFF FROM STUDENTS please visit the site www.google.com "
+                        text:`New Update Request Was Uploaded By "${sForwarded_from}" : The Request Is On " ${sPhase}'s " Document Titled  "${sTitle_of_the_course}"
+                        Please Respond To The Request. Thank You!`
                     };
                     
                     mailSender.sendMail(details,(err)=>{
