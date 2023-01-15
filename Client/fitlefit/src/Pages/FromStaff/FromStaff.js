@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./ForStaff.css";
 import axios from 'axios';
-
-import nodemailer from 'nodemailer';
+import StaffNames from "../../StaffNames/StaffNames.js";
+import staffNames from "../../StaffNames/StaffNames.js";
 function fromStuff() {
 let server = "http://localhost:3456";
 let url = `${server}/user/postQuery`;
@@ -56,6 +56,7 @@ let inputHandler = (e)=>{
     case "screenshot1": setFormData((pre)=>{return {...pre,screenshot1:  e.target.files[0]}});
       break;
     default:
+     
       break;
   }
 };
@@ -82,18 +83,22 @@ return (
             <div>
             <label className="titles" htmlFor="Name">Forwarded By </label>
             </div>
-            <select className="name_section" name="forwarded_from" onChange={inputHandler}>
-              <option value="Adugna">Adugna</option>
-              <option value="Aschalew">Aschalew</option>
-              <option value="Biruk">Biruk</option>
-              <option value="Daniel">Daniel</option>
-              <option value="Edom">Edom</option>
-              <option value="Eibrahim">Eibrahim</option>
-              <option value="Israel">Israel</option>
-              <option value="Rediat">Rediat</option>
-              <option value="Saron">Saron</option>
-              <option value="Seife">Seife</option>
-              <option value="Tewedaj">Tewedaj</option>
+            <select  className="name_section" name="forwarded_from" onChange={inputHandler}>
+            <option  value="name not selected">please select your name </option>
+            <option className="phaseThree" value="Aduga">{staffNames.staff1}</option>
+            <option className="phaseTwo" value="Aschalew">{staffNames.staff2}</option>
+                <option className="phaseOne" value="Aschalew">{staffNames.staff3}</option>
+                <option className="phaseFour" value="Biruk">{staffNames.staff4}</option>
+                <option className="phaseOne" value="Daniel">{staffNames.staff5}</option>
+                <option className="phaseTwo" value="Edom">{staffNames.staff6}</option>
+                <option className="phaseThree" value="Eibrahim">{staffNames.staff7}</option>
+                <option className="phaseFour" value="Israel">{staffNames.staff8}</option>
+                <option className="phaseThree" value="Israel">{staffNames.staff9}</option>
+                <option className="phaseOne" value="Rediat">{staffNames.staff10}</option>
+                <option className="phaseTwo" value="Rediat">{staffNames.staff11}</option>
+                <option className="phaseTwo" value="Saron">{staffNames.staff12}</option>
+                <option className="phaseThree" value="Seife">{staffNames.staff13}</option>
+                <option className="phaseFour" value="Tewedaj">{staffNames.staff14}</option>
             </select>
           </div>
           <div>
@@ -101,7 +106,8 @@ return (
             <label className="titles" htmlFor="Name">Session </label>
             </div>
             <select className="name_section" name="phase" id="" onChange={inputHandler}>
-              <option value="Technical assistant session">
+            <option value="phase not selected">Please Select The Phase</option>
+              <option className="phaseThree" value="Technical assistant session">
                 Technical assistant session
               </option>
               <option className="phaseOne" value="Phase One">
@@ -120,6 +126,7 @@ return (
             <label className="titles" htmlFor="Name">Course And Phase</label>
             </div>
             <select className="name_section" name="title_of_the_course" id="" onChange={inputHandler}>
+             <option value="course title not selected">Please Select Course Title</option>
               <option className="phaseOne" value="Basic computer skills">
                 Basic computer skills
               </option>
@@ -222,14 +229,21 @@ return (
             <label className="titles" htmlFor="Name">Material Type </label>
             </div>
             <select className="name_section" name="correction_is_on" id="" onChange={inputHandler}>
-              <option value="Teaching Material">Teaching Material</option>
-              <option value="Practice Questions">Practice Questions</option>
+            <option value="material type not selected">Please Select The Material Type</option>
+              <option className="phaseOne"  value="Notes of Teaching Material ">Notes of Teaching Material </option>
+              <option className="phaseTwo"  value="video of Teaching Material">video of Teaching Material </option>
+              <option className="phaseThree" value="Practice Questions">Practice Questions</option>
+              <option className="phaseOne" value="Check list">Check list</option>
+              <option className="phaseTwo" value="To Do List">To Do List</option>
+              <option className="phaseThree"  value="Reference materials and Videos">Reference materials and Videos</option>
+              <option className="phaseTwo" value="Shared Document">Shared Document</option>
             </select>
           </div>
           </div>
           <div>
             <textarea
               type="text"
+              maxLength="1000"
               name="note_on_correction"
               placeholder="your comment here"
               onChange={inputHandler}
@@ -238,7 +252,7 @@ return (
           </div>
           <div className="labelAkafi">
           <label className="label" htmlFor="fileUpload">Upload Picture</label>
-          <h6>Picture Upload Is Mandatory</h6>
+          <h6>Picture Upload Is Mandatory!!</h6>
           <input
               onChange={inputHandler}
                 id="fileUpload"

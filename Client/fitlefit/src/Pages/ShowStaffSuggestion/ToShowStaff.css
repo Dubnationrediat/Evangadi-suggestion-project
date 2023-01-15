@@ -28,3 +28,14 @@
 .headerStyling{
     text-decoration: underline;
 }
+.passedImage{
+    width: 30px;
+    transition: transform .2s;
+}
+
+.passedImage:hover{
+  transform: scale(10) translateX(-30%) translateY(30%);
+  border-radius: 5PX;
+  transform: rotateX('angle');
+  transform: rotateY('10');
+}

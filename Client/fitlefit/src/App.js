@@ -12,6 +12,7 @@ import ToShowStaffS from './Pages/ShowStaffSuggestion/ToShowStaffS.js';
 import ToShowStudentQ from './Pages/ShowStudentQuestion/ToShowStudentQ.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
+import Notification from './Pages/NotificationPage/Notification.js';
 function App() {
   return (
     <div className='wanawAkafi'>
@@ -23,11 +24,12 @@ function App() {
         <Route exact path='/uploadSquestion' element={<FromStudent/>}/>
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
         <Route exact path='/admin' element={<Admin/>}/>
-        <Route exact path='/admin' element={<Admin/>}/>
+        {/* <Route exact path='/admin' element={<Admin/>}/> */}
         <Route exact path='/answer' element={<Answer/>}/>
         <Route exact path='/viewAnswer' element={<ViewAnaser/>}/>
         <Route exact path='/showStaffSuggestion' element={<ToShowStaffS/>}/>
         <Route exact path='/showStudentQuestions' element={<ToShowStudentQ/> }/>
+        <Route exact path='/Notification' element={<Notification/> }/>
         <Route exact path='*' element={<Error/>}/>
       </Routes>
     </Router>

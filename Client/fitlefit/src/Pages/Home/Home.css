@@ -1,10 +1,7 @@
 .home_akafi{
-    width: 80vw;
     height: 120vh;
     background-size:contain;
     margin: 3rem auto;
-    /* Glass transform */
-    
 background: rgba( 255, 255, 255, 0.35 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 6.5px );
@@ -16,7 +13,7 @@ overflow: hidden;
 
 .button1,.button2,.button3{
     display: block;
-    width: 22rem;
+    width: 100%;
     border: 2px solid black;
     border-radius: 5px;
     text-align: center;

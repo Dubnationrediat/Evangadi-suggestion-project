@@ -23,7 +23,7 @@ function Home() {
         <div className="my-2">
           <a className="button3 btn" href="/admin">
             
-          <RemoveRedEyeIcon/>  View Collections 
+          <RemoveRedEyeIcon/>  Admin View Section
           </a>
         </div>
       </div>
