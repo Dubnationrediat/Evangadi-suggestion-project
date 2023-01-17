@@ -6,6 +6,7 @@ import queryFromEvangadiToPost from './Routes/queryRoute.js'
 import queryFromStudentToPost from './Routes/SquestionsRoute.js'
 import allDataRouteStudent from './Routes/getAllDataRouteFromStudent.js'
 import allDataRouteStaff from './Routes/getAllDataRouteFromStaff.js'
+import notificationRoute from "./Routes/notificationRoute.js";
 let app = express();
 // support middleware
 app.use(express.json()); 
@@ -19,6 +20,7 @@ app.use('/user',queryFromEvangadiToPost)
 app.use('/user',queryFromStudentToPost)
 app.use('/user',allDataRouteStudent)
 app.use('/user',allDataRouteStaff)
+app.use('/user',notificationRoute)
 // create connection info
 let Econnection = mysql.createConnection({
     user:"evangadiSuggestion",

@@ -1,22 +1,18 @@
 import Econnection  from "../server.js";
 import nodemailer from 'nodemailer'
 let postInfo = (req,res)=>{
-    console.log(req.body)
-
     if(req.file){
         let imagePath = req.file.filename;
         
         const {forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction} = req.body;
-
         
         let values = [forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,imagePath];
         
         let contentAdder = `INSERT INTO forquery(forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,screenshot1) VALUES (?)`;
         
         Econnection.query(contentAdder,[values],(err)=>{
-
-            if(err){
-                console.log(err)
+        
+           if(err){
                 res.send("uploading the information was not successful, please follow the instruction. Thank You!")
             }else{
                 function sendEmail  (){
@@ -46,15 +42,13 @@ let postInfo = (req,res)=>{
                         }
                     })
                     }
-                    
                     sendEmail()
                 res.send({
                     forThanking : `Uploaded successfully,Thank you!`,
                     forHomePageReturn: `Click Here To Go Back To Home Page`
                 })
-                console.log("1 record inserted")
+                console.log("1 record inserted");
             };
-            
         })
     }
 }

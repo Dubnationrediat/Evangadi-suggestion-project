@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./ForStaff.css";
 import axios from 'axios';
-import StaffNames from "../../StaffNames/StaffNames.js";
 import staffNames from "../../StaffNames/StaffNames.js";
 function fromStuff() {
 let server = "http://localhost:3456";

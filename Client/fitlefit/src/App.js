@@ -3,7 +3,6 @@ import './App.css'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import FromStudent from "./Pages/FromStudent/fromStudents.js";
 import FromStuff from "./Pages/FromStaff/FromStaff.js";
-import Home from "./Pages/Home/Home.js";
 import Error from "./Pages/Error.js";
 import Admin from './Pages/ForAdmin/ToAdmin.js'
 import Answer from './Pages/Answer.js';
@@ -13,6 +12,9 @@ import ToShowStudentQ from './Pages/ShowStudentQuestion/ToShowStudentQ.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import Notification from './Pages/NotificationPage/Notification.js';
+import Home from './Pages/Home/Home.js'
+import SignUp from './Pages/SignupPage/SignUp.js';
+
 function App() {
   return (
     <div className='wanawAkafi'>
@@ -24,7 +26,8 @@ function App() {
         <Route exact path='/uploadSquestion' element={<FromStudent/>}/>
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
         <Route exact path='/admin' element={<Admin/>}/>
-        {/* <Route exact path='/admin' element={<Admin/>}/> */}
+        <Route exact path='/signup' element={<SignUp/>}/>
+        <Route exact path='/admin' element={<Admin/>}/>
         <Route exact path='/answer' element={<Answer/>}/>
         <Route exact path='/viewAnswer' element={<ViewAnaser/>}/>
         <Route exact path='/showStaffSuggestion' element={<ToShowStaffS/>}/>
@@ -33,6 +36,7 @@ function App() {
         <Route exact path='*' element={<Error/>}/>
       </Routes>
     </Router>
+  
  <Footer/>   
     </div>
   );
