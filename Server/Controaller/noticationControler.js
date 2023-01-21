@@ -3,7 +3,7 @@ import Econnection  from "../server.js";
 
 let notification =(req,res)=>{
     const {assigned_to,message}=req.body
-    console.log(req.body);
+    console.log(req.body)
     let value = [assigned_to,message];
     let notificationAdder = `INSERT INTO notification(assigned_to,message) VALUES (?)`;
 
@@ -19,6 +19,5 @@ let notification =(req,res)=>{
          }
     })
 }
-
 
 export default notification;

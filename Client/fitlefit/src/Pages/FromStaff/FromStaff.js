@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ForStaff.css";
 import axios from 'axios';
 import staffNames from "../../StaffNames/StaffNames.js";
-function fromStuff() {
+function FromStuff() {
 let server = "http://localhost:3456";
 let url = `${server}/user/postQuery`;
 
@@ -54,7 +54,6 @@ let inputHandler = (e)=>{
     case "screenshot1": setFormData((pre)=>{return {...pre,screenshot1:  e.target.files[0]}});
       break;
     default:
-     
       break;
   }
 };
@@ -65,7 +64,6 @@ if(response){
               <h1 className="thankYou">{response.forThanking}</h1>
               <a className="thankYouAnch" href="/home">{response.forHomePageReturn}</a>
          </div>
- 
 }else{
 
 return (
@@ -274,4 +272,4 @@ return (
 }
 }
 
-export default fromStuff;
+export default FromStuff;
