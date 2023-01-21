@@ -33,7 +33,6 @@ let submitHandler = (e)=>{
     data: fd,
     headers: {"Content-Type": "multipart/form-data" },
   }).then((data)=>{
-    console.log(data)
     setResponce(data.data)
   }).catch((err)=>{
     console.log(err)

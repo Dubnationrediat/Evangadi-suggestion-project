@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer.js';
 import Notification from './Pages/NotificationPage/Notification.js';
 import Home from './Pages/Home/Home.js'
 import SignUp from './Pages/SignupPage/SignUp.js';
+import Login from './Pages/LoginPage/Login.js'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
         <Route exact path='/admin' element={<Admin/>}/>
         <Route exact path='/signup' element={<SignUp/>}/>
+        <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/admin' element={<Admin/>}/>
         <Route exact path='/answer' element={<Answer/>}/>
         <Route exact path='/viewAnswer' element={<ViewAnaser/>}/>
@@ -36,10 +38,8 @@ function App() {
         <Route exact path='*' element={<Error/>}/>
       </Routes>
     </Router>
-  
  <Footer/>   
     </div>
   );
 }
-
 export default App;

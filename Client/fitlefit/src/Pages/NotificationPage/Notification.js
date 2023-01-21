@@ -2,34 +2,39 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import staffNames from '../../StaffNames/StaffNames.js'
 import './Notification.css'
+let ser ="http://localhost:3456";
+let address = `${ser}/user/notification`
 function Notificaiton() {
-  let ser ="http://localhost:3456";
-  let address = `${ser}/user/notification`
-
-   const [response,setResponce] =useState();
-
-   const [formData,setFormData] = useState({
-   assigned_to:"",
-   message:""
+  const [Data,setFormData] = useState({
+    assigned_to:"",
+     message:""
    });
 
-  let forSubmit =(e)=>{
-    e.preventDefault()
-    let fileUploader= new FormData();
-    fileUploader.append('assigned_to',formData.assigned_to)
-    fileUploader.append('message',formData.message)
+   const [response,setResponse] =useState();
 
-    axios({
-      method: "POST",
-      headers: {"Content-Type": "multipart/form-data" },
+  let  forSubmit = async (e)=>{
+    e.preventDefault()
+    const fileUploader= new FormData();
+    fileUploader.append('assigned_to',Data.assigned_to);
+    fileUploader.append('message',Data.message);
+try{
+   await axios({
       url:address,
+      headers: {"Content-Type": "multipart/form-data"},
+      method: "post",
       data: fileUploader,
     }).then((data)=>{
-      setResponce(data.data)
+      setResponse(data.data)
     }).catch((err)=>{
       console.log(err)
     })
+
+  }catch(err){
+    console.log(err)
   }
+
+  }
+  
 
   let forInput =(e)=>{
     switch (e.target.name){
@@ -41,9 +46,7 @@ function Notificaiton() {
       break
     }
   };
-
     if(response){
-
       return <div className='forSuccessPage'>
                 <h1 className='thankYou'>{response.forThanking}</h1>
                 <a className='thankYouAnch' href="">{response.forHomePageReturn}</a>
@@ -51,10 +54,10 @@ function Notificaiton() {
     }else{
       return (
         <div className='notificationAkafi container'>
-        <form onSubmit={forSubmit} >
+         <form onSubmit={forSubmit} method="post">
         <h3 className='mt-3 d-flex'> Send Notification and Task Assignment</h3>
-        <select  className="name_section" name="assigned_to" onChange={forInput}>
-                    <option  value="name not selected">please select name </option>
+              <select  className="name_section" name="assigned_to" onChange={forInput}>
+                    <option value="name not selected">please select name </option>
                     <option className="phaseThree" value="Aduga">{staffNames.staff1}</option>
                     <option className="phaseTwo" value="Aschalew">{staffNames.staff2}</option>
                     <option className="phaseOne" value="Aschalew">{staffNames.staff3}</option>
@@ -72,12 +75,12 @@ function Notificaiton() {
                     <option value="For All">For All</option>
               </select>
               <textarea type="text" name='message'  placeholder='Your  Message on Task here' id='task' onChange={forInput} />
-              <button type='submit' className='notificationSubmit'>send</button>
-              </form>
+              <button  className='notificationSubmit'>send</button>
+              </form>  
+              
         </div>
       )
     }
-
 }
 
 export default Notificaiton
