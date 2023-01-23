@@ -6,11 +6,13 @@ import queryFromEvangadiToPost from './Routes/queryRoute.js'
 import queryFromStudentToPost from './Routes/SquestionsRoute.js'
 import allDataRouteStudent from './Routes/getAllDataRouteFromStudent.js'
 import allDataRouteStaff from './Routes/getAllDataRouteFromStaff.js'
+import registerInfo from "./Routes/registerRoute.js"
 import notificationRoute from "./Routes/notificationRoute.js";
+import toShowNotification from "./Routes/getAllNotificationRoute.js"
 let app = express();
 // support middleware
 app.use(express.json()); 
-app.use(express.urlencoded( {extended: true }));
+app.use(express.urlencoded({extended: false }));
 app.use(express.static("Public/ImageFromStaff/"))
 app.use(express.static("Public/ImageFromStudent/"))
 app.use(cors());
@@ -21,6 +23,8 @@ app.use('/user',queryFromStudentToPost)
 app.use('/user',allDataRouteStudent)
 app.use('/user',allDataRouteStaff)
 app.use('/user',notificationRoute)
+app.use('/user',registerInfo)
+app.use('/user',toShowNotification)
 // create connection info
 let Econnection = mysql.createConnection({
     user:"evangadiSuggestion",

@@ -1,6 +1,5 @@
 import Econnection  from "../server.js";
 
-
 let notification =(req,res)=>{
     const {assigned_to,message}=req.body
     console.log(req.body)
