@@ -64,7 +64,7 @@ function Home() {
               console.log(singleData)
               let singleDataShower = (
               <ul key={i}>
-                <li>Notification by : {singleData.assigned_to}</li>
+                <li>Notification To : {singleData.assigned_to}</li>
                 <li>Notification: {singleData.message}</li>
               </ul>
               )

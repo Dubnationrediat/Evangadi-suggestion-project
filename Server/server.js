@@ -9,6 +9,7 @@ import allDataRouteStaff from './Routes/getAllDataRouteFromStaff.js'
 import registerInfo from "./Routes/registerRoute.js"
 import notificationRoute from "./Routes/notificationRoute.js";
 import toShowNotification from "./Routes/getAllNotificationRoute.js"
+import toDeleteNotification from "./Routes/notificationRoute.js"
 let app = express();
 // support middleware
 app.use(express.json()); 
@@ -25,6 +26,7 @@ app.use('/user',allDataRouteStaff)
 app.use('/user',notificationRoute)
 app.use('/user',registerInfo)
 app.use('/user',toShowNotification)
+app.use('/user',toDeleteNotification)
 // create connection info
 let Econnection = mysql.createConnection({
     user:"evangadiSuggestion",

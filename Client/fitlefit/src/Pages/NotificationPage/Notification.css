@@ -40,3 +40,6 @@ textarea{
  .forSuccessPage{
    height: 100vh;
  }
+ .border{
+    background-color: #fe8402;
+ }

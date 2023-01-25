@@ -26,10 +26,12 @@ function Notificaiton() {
       data: fileUploader,
     }).then((data)=>{
       setResponse(data.data)
+      console.log(data)
     }).catch((err)=>{
       console.log(err)
     })
   } 
+
   let forInput =(e)=>{
     switch (e.target.name){
     case 'assigned_to' : setFormData((pre)=>{return{...pre,assigned_to:e.target.value}})
@@ -47,10 +49,19 @@ function Notificaiton() {
    url,
  }).then((data)=>{
    setdata(data.data)
+  
  }).catch((err)=>{
    console.log(err)
  })
- 
+
+//  *For Delete 
+function toDelete(id) {
+  let url = `http://localhost:3456/user/deleteNotification/${id}`
+  fetch(url,{
+    method:`DELETE`,
+  })
+
+}
     if(response){
       console.log(response)
       return <div className='forSuccessPage'>
@@ -84,7 +95,6 @@ function Notificaiton() {
               <button type="submit" className='notificationSubmit'>send</button>
               </form>  
               <h3 className='d-block m-3 text-center bg-primary'>Previous Notifications</h3>
-
               {
             data.map((singleData,i)=>{
               console.log(singleData)
@@ -96,14 +106,12 @@ function Notificaiton() {
                 <div className='border border-success col-md-6 w-100 m-2 p-1 text-center'>Notification Message:{singleData.message}</div>
           
               </div>
-                <button className='notificationSubmit'>Delete</button>
+                <button onClick={()=>toDelete(singleData.notification_id)}className='notificationSubmit'>Delete</button>
               </div>
               )
               return singleDataShower
             })
-          }
-              
-              
+          }    
         </div>
       )
     }
