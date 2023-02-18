@@ -107,5 +107,8 @@ form {
 	margin-right: 0px;
 }
 input[type] {
-    display: block;
+    display: block !important;
+}
+*, ::after, ::before {
+    box-sizing:content-box;
 }

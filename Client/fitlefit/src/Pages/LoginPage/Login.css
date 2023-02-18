@@ -20,19 +20,13 @@
 form {
 	text-align: center;
 }
-input[type] {
-    display: block;
-}
+
 .main {
 	min-height: 600px;
 	border-radius: 15px;
 	background: #fcfbfb;
 	box-shadow: 17px 17px 34px #d0d0d0;
-	/* margin: auto; */
 	border-radius: 8px;
-	/* padding-bottom: 120px; */
-	/* box-shadow: 0 1px 1px rgb(0 0 0 / 10%); */
-	/* width: 400px; */
 }
 .p1 {
 	text-align: center;
@@ -67,7 +61,6 @@ input[type] {
 	font-size: 15px;
 	text-align: center;
 }
-
 .sideNote2 {
 	width: 600px;
 }
@@ -114,4 +107,7 @@ h1 {
 	margin: -52px 25px 0px 360px;
 	opacity: 0.65;
 	cursor: pointer;
+}
+input[type] {
+    display: block !important;
 }

@@ -6,6 +6,7 @@ let createqueryTable = `CREATE TABLE if not exists forQuery(
     correction_is_on varchar(255) not null,
     note_on_correction varchar(255) not null,
     screenshot1 varchar(255),
+    statuscheck  BOOLEAN  , 
     PRIMARY KEY (forQuery)
     )`
 

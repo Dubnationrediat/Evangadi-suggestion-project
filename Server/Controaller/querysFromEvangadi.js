@@ -6,9 +6,9 @@ let postInfo = (req,res)=>{
         
         const {forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction} = req.body;
         
-        let values = [forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,imagePath];
+        let values = [forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,imagePath,0];
         
-        let contentAdder = `INSERT INTO forquery(forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,screenshot1) VALUES (?)`;
+        let contentAdder = `INSERT INTO forquery(forwarded_from,phase,title_of_the_course,correction_is_on,note_on_correction,screenshot1,statuscheck) VALUES (?)`;
         
         Econnection.query(contentAdder,[values],(err)=>{
         

@@ -15,6 +15,8 @@ import Notification from './Pages/NotificationPage/Notification.js';
 import Home from './Pages/Home/Home.js'
 import SignUp from './Pages/SignupPage/SignUp.js';
 import Login from './Pages/LoginPage/Login.js'
+import Update from './Pages/Update/Update.js'
+import ProtectRoute from './components/ProtectRoutes/ProtectRoute';
 
 function App() {
   return (
@@ -26,14 +28,16 @@ function App() {
         <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/uploadSquestion' element={<FromStudent/>}/>
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
-        <Route exact path='/admin' element={<Admin/>}/>
+
+        <Route exact path='/admin' element={ < Admin/>}/>
+
         <Route exact path='/signup' element={<SignUp/>}/>
         <Route exact path='/login' element={<Login/>}/>
-        <Route exact path='/admin' element={<Admin/>}/>
         <Route exact path='/answer' element={<Answer/>}/>
         <Route exact path='/viewAnswer' element={<ViewAnaser/>}/>
         <Route exact path='/showStaffSuggestion' element={<ToShowStaffS/>}/>
         <Route exact path='/showStudentQuestions' element={<ToShowStudentQ/> }/>
+        <Route exact path='/updateNotification/:id' element={<Update/> }/>
         <Route exact path='/Notification' element={<Notification/> }/>
         <Route exact path='*' element={<Error/>}/>
       </Routes>

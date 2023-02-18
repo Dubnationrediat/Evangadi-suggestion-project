@@ -7,10 +7,10 @@ let postInfo = (req,res)=>{
         let imagePath2= req.file.filename
 
         const {sNote_on_correction,sCorrection_is_on,sTitle_of_the_course,sPhase,sForwarded_from} = req.body
-        
-        let adderToStudentTable = `INSERT INTO studentinfo(sforwarded_from,sphase,stitle_of_the_course,scorrection_is_on,snote_on_correction,screenshot2) VALUES (?)`;
 
-        let value = [sForwarded_from,sPhase,sTitle_of_the_course,sCorrection_is_on,sNote_on_correction,imagePath2];
+        let value = [sForwarded_from,sPhase,sTitle_of_the_course,sCorrection_is_on,sNote_on_correction,imagePath2,0];
+
+        let adderToStudentTable = `INSERT INTO studentinfo(sforwarded_from,sphase,stitle_of_the_course,scorrection_is_on,snote_on_correction,screenshot2,statuscheck) VALUES (?)`;
 
         Econnection.query(adderToStudentTable,[value],(err)=>{
 

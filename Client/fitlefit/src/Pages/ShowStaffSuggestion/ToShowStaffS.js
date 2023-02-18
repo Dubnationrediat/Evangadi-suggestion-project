@@ -10,12 +10,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-
 function ToShowStaffS() {
 
   const [staff, setStaff] = useState([]);
 
-  const [forImage, setforImage] = useState([]);
+  const [done, setDone] = useState(true);
 
   let urlForStaff = "http://localhost:3456/user/getStaffData";
   
@@ -25,15 +24,75 @@ function ToShowStaffS() {
 
       let convertedForStaff = JSON.parse(JSON.stringify(responceForStaff.data));
 
-      setStaff(convertedForStaff);
-      console.dir(staff)
+      setStaff(()=>convertedForStaff);
     } catch (err) {
       console.log({ "its error": err });
     }
   };
-  useEffect(() => {
+  useEffect(()=>{
+    dataFromStaffes()
+    },[])
+  //* responce from backend
+  let backEndData={
+    style:"",
+    text:"",
+    checkMark:0
+  }
+  // * delete notification for admin 
+  function forDeletingUsingChecklist(id) {
+
+    // *put confirming alert
+
+    let url = `http://localhost:3456/user/deleteCheckListOfStaff/${id}`
+    fetch(url,{
+      method:`DELETE`,
+    })
+    done == true ? setDone(false) : setDone(true);
+  }
+  // * progress showing
+  let  setProgress = async (e,passedId)=>{
+    e.preventDefault();
+    let getAddress = await `http://localhost:3456/user/updateStatuscheckFromStaff`;
+
+    staff.map((singleData)=>{
+     let idInDb = singleData.forQuery
+     let singleStatus =  singleData.statuscheck
+ 
+      if(idInDb === passedId){
+       
+        if(singleStatus === 1){
+          axios.post(getAddress,{
+            updated_statuscheck:0,
+              id:`${passedId}`
+          }).then((response)=>{
+            backEndData.text=response.data.text
+            backEndData.style=response.data.style
+            backEndData.checkMark=response.data.checkMark
+           done == true ? setDone(false) : setDone(true);
+          }).catch((err)=>{
+              console.log(err)
+          })
+        }
+         if(singleStatus=== 0)
+        {
+          axios.post(getAddress,{
+              updated_statuscheck:1,
+              id:`${passedId}`
+          }).then((response)=>{
+            backEndData.text=response.data.text
+            backEndData.style=response.data.style
+            backEndData.checkMark=response.data.checkMark
+            done == true ? setDone(false) : setDone(true)
+          })
+        }
+      }
+    })
+   }
+
+   useEffect(() => {
     dataFromStaffes();
-  }, []);
+  }, [done]);
+ 
 // * Table section from material UI
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,73 +114,51 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(
-  name: "string",
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-  picture:string
-) {
-  return { name, calories, fat, carbs, protein,picture };
-}
-
-// const rows = [
-//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0,"photoOne"),
-//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0,"photoOne"),
-//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0,"photoOne"),
-//   createData('Ice cream sandwich', 237, 9.0, 37, 4.3,"photoOne"),
-//   createData('Eclair', 262, 16.0, 24, 6.0,"photoOne"),
-//   createData('Cupcake', 305, 3.7, 67, 4.3,"photoOne"),
-//   createData('Gingerbread', 356, 16.0, 49, 3.9,"photoOne"),
-// ];
-
-
 //  *end of material UI table 
-
 
   return (
     <div className="toShowStaffForward">
 {/* ------------------------------------------------------- */}
-<TableContainer className="toShowStaffForward" component={Paper}>
+<TableContainer className="toShowStaffForward m-2" component={Paper}>
       <h1 className="TitleFromStaff">List Of Information Forwarded From Staffs</h1>
     
       <Table  sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead className="background">
           <TableRow className="background">
-            <StyledTableCell className="border" align="right">Forwarded From</StyledTableCell>
-            <StyledTableCell align="right">Phase</StyledTableCell>
-            <StyledTableCell className="border" align="right">Title of the course</StyledTableCell>
-            <StyledTableCell align="right">Correction on</StyledTableCell>
-            <StyledTableCell className="border" align="right">Passed note on correction</StyledTableCell>
-            <StyledTableCell align="right"> passed Screenshot</StyledTableCell>
-            <StyledTableCell  align="right">Hover On Image For Zooming</StyledTableCell>
+            <StyledTableCell className="border" align="center">Forwarded From</StyledTableCell>
+            <StyledTableCell align="center">Phase</StyledTableCell>
+            <StyledTableCell className="border" align="center">Title of the course</StyledTableCell>
+            <StyledTableCell align="center">Correction on</StyledTableCell>
+            <StyledTableCell className="border" align="center">Passed note on correction</StyledTableCell>
+            <StyledTableCell align="center"> passed Screenshot</StyledTableCell>
+            <StyledTableCell  align="center">Hover On Image For Zooming</StyledTableCell>
           </TableRow>
         </TableHead>
         {staff.map((data,j) => {
-          console.log(data)
       let staffDataDisplay = (
-        <TableBody key={j}>
+        <TableBody className="" key={j}>
             <StyledTableRow >
-              <StyledTableCell className="border" align="right">{data.forwarded_from}</StyledTableCell>
-              <StyledTableCell align="right">{data.phase}</StyledTableCell>
-              <StyledTableCell className="border" align="right">{data.title_of_the_course}</StyledTableCell>
+              <StyledTableCell className="border" align="center">{data.forwarded_from}</StyledTableCell>
+              <StyledTableCell align="center">{data.phase}</StyledTableCell>
+              <StyledTableCell className="border" align="center">{data.title_of_the_course}</StyledTableCell>
               <StyledTableCell align="right">{data.correction_is_on}</StyledTableCell>
-              <StyledTableCell className="border"  align="right">{data.note_on_correction}</StyledTableCell>
-              <StyledTableCell   align="right">{data.screenshoot2}</StyledTableCell>
-              <img className="passedImage"  src={`http://localhost:3456/${data.screenshot1}`} alt="" />
+              <StyledTableCell className="border"  align="center">{data.note_on_correction}</StyledTableCell>
+              <StyledTableCell   align="center">{data.screenshoot2}</StyledTableCell>
+              <StyledTableCell   align="center">
+              <img className="passedImage"  src={`http://localhost:3456/${data.screenshot1}`} alt="screenShot" />
+              </StyledTableCell>
             </StyledTableRow>
+              <StyledTableCell  className="d-flex ">
+                <button className='btn_toShowStaff m-2' onClick={(e)=>setProgress(e,data.forQuery)} style={{backgroundColor : data.statuscheck===1? "green" : "red"}}>{data.statuscheck===1 ? "Done": "In Progress"}</button>
+
+                <button onClick={()=>forDeletingUsingChecklist(data.forQuery)} className='btn_toShowStaff m-2'>Delete</button>
+              </StyledTableCell>
         </TableBody>
-    
       )
       return staffDataDisplay;
     })}
       </Table>
-   
     </TableContainer>
-   
-
-  
     </div>
   );
 }

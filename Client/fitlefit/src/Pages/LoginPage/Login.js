@@ -25,6 +25,11 @@ const Login = () => {
       setType("password");
     }
   };
+  let userSet =(e)=>{
+    e.preventDefault();
+    localStorage.setItem('user','tewedi')
+  }
+
   return (
     <div className="container-fluid login_page">
       <div className="container py-5 d-md-flex justify-content-between login_container">
@@ -33,10 +38,10 @@ const Login = () => {
           <p className="p2 text-center">
             Don't have an account?<Link to='/signup' className="a3"> Create a new account</Link>
           </p>
-          <form >
-            <input className="in1" type="email" name="email"  placeholder="Your Email" />
+          <form onSubmit={(e)=>userSet(e)} >
+            <input className="in1" type="email" name="email"  placeholder="Your Email" autoComplete="new-password" />
            
-            <input className="in1" type={type} name="password"  placeholder="Your Password" />
+            <input className="in1" type={type} name="password"  placeholder="Your Password" autoComplete="new-password" />
             <span  className="showHide2">
               <Icon icon={icon} size={20} onClick={HandleIconChange} />
             </span>

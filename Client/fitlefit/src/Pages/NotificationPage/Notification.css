@@ -16,7 +16,7 @@ textarea{
     font-weight: bold;
     margin-left: 20%;
 }
-.notificationSubmit:click{
+.notificationSubmit:hover{
     background-color: #fe8402;
     border: #007bff solid 2px;
     font-size: 20px;
@@ -34,7 +34,6 @@ textarea{
  .thankYou{
      margin-top: 10%;
     text-align: center;
- 
  }
  
  .forSuccessPage{
@@ -42,4 +41,25 @@ textarea{
  }
  .border{
     background-color: #fe8402;
+ }
+ .toHide{
+    display: none;
+ }
+ .toShow{
+    display: block;
+ }
+ .hide{
+    display: none;
+ }
+ .show{
+    display: block;
+ }
+ a{
+   color: black;
+   text-align: center;
+   text-decoration: none;
+   padding-top: 2%;
+ }
+ a:hover{
+   color: black;
  }

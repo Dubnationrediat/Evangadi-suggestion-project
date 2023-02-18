@@ -122,6 +122,7 @@ const SignUp = () => {
               <div className="FLname d-flex">
                 <input
                   className="in11 me-1"
+                  autoComplete="new-password"
                   name="user_first_name"
                   onChange={handleChange}
                   type="text"
@@ -133,6 +134,7 @@ const SignUp = () => {
                   name="user_last_name"
                   onChange={handleChange}
                   type="text"
+                  autoComplete="new-password"
                   placeholder="Last Name"
                 />
               </div>
@@ -141,12 +143,14 @@ const SignUp = () => {
                 className="in11"
                 name="user_name"
                 onChange={handleChange}
+                autoComplete="new-password"
                 type="text"
                 placeholder="User Name"
               />
               <input
                 className="in11 mr-1"
                 name="user_email"
+                autoComplete="new-password"
                 onChange={handleChange}
                 type="email"
                 placeholder="Email"
@@ -155,6 +159,7 @@ const SignUp = () => {
                 className="in11"
                 onChange={handleChange}
                 name="user_password"
+                autoComplete="new-password"
                 type={type}
                 placeholder="Password"
               />
@@ -162,6 +167,7 @@ const SignUp = () => {
                 className="in11"
                 onChange={handleChange}
                 name="Confirm_Password"
+                autoComplete="new-password"
                 type={type}
                 placeholder="Confirm Password"
               />

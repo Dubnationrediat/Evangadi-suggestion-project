@@ -6,6 +6,7 @@ let fromStudent =`CREATE TABLE if not exists studentInfo(
     scorrection_is_on varchar(255) not null,
     snote_on_correction varchar(255) not null,
     screenshot2 varchar(255) ,
+    statuscheck  BOOLEAN , 
     PRIMARY KEY (question)
     )`
 

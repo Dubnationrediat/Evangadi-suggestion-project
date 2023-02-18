@@ -23,7 +23,6 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     text-align: center;
     height: 115vh;
- /* width: 100vw; */
   };
 h3{
     font-family: 'Courier New', Courier, monospace;
@@ -44,7 +43,7 @@ textarea{
 }
 
 input[type]{
-    display: none;
+    display: none !important;
 }
 
 .label{
