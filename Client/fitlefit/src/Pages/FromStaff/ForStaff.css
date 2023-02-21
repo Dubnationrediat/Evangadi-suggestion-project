@@ -111,3 +111,7 @@ form{
 .forSuccessPage{
   height: 100vh;
 }
+
+#fileUpload{
+  display: none !important;
+}

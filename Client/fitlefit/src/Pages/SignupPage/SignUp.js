@@ -43,7 +43,6 @@ const SignUp = () => {
       user_name:userData.user_name,
       user_email:userData.user_email,
       user_password:userData.user_password,
-
     }
 
     axios({
@@ -52,13 +51,13 @@ const SignUp = () => {
       data: userFile,
     })
       .then((data) => {
-        setresponse(data.data);
+        setresponse(data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  console.log(userData)
+
   // ******************************
   let handleChange = (e) => {
     switch (e.target.name) {
@@ -96,6 +95,7 @@ const SignUp = () => {
         break;
     }
   };
+  console.log(response);
   // ****************************
   if (response) {
     return (
@@ -121,6 +121,7 @@ const SignUp = () => {
             <form onSubmit={formSubmitter}>
               <div className="FLname d-flex">
                 <input
+                required
                   className="in11 me-1"
                   autoComplete="new-password"
                   name="user_first_name"
@@ -130,6 +131,7 @@ const SignUp = () => {
                 />
 
                 <input
+                required
                   className="in11 ms-1"
                   name="user_last_name"
                   onChange={handleChange}
@@ -140,6 +142,7 @@ const SignUp = () => {
               </div>
 
               <input
+              required
                 className="in11"
                 name="user_name"
                 onChange={handleChange}
@@ -148,6 +151,7 @@ const SignUp = () => {
                 placeholder="User Name"
               />
               <input
+              required
                 className="in11 mr-1"
                 name="user_email"
                 autoComplete="new-password"
@@ -156,6 +160,7 @@ const SignUp = () => {
                 placeholder="Email"
               />
               <input
+              required
                 className="in11"
                 onChange={handleChange}
                 name="user_password"
@@ -164,6 +169,7 @@ const SignUp = () => {
                 placeholder="Password"
               />
               <input
+              required
                 className="in11"
                 onChange={handleChange}
                 name="Confirm_Password"

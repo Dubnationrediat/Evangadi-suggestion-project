@@ -110,5 +110,5 @@ input[type] {
     display: block !important;
 }
 *, ::after, ::before {
-    box-sizing:content-box;
+    /* box-sizing:content-box; */
 }

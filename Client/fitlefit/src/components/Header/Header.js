@@ -14,7 +14,7 @@ function Header() {
             <div className='d-flex  innerContainer2 justify-content-between d-none d-md-block'>
               <a href="/">Home</a>
               <a href="/">Home It Works</a>
-              <button className='btn_header'>LogIn/LogOut</button>
+              <a href='/signUp' className='loginHeader'>LogIn/LogOut</a>
             </div>
         </div>
     </div>

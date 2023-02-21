@@ -7,10 +7,6 @@ import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 const Login = () => {
-
-  const navigate = useNavigate();
-  const [form, setForm] = useState({});
-
   const [type, setType] = useState("password");
   // to change type attribute from 'password' to 'text' and vice versa
   const [icon, setIcon] = useState(eyeOff);

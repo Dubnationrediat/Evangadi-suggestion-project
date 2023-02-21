@@ -47,7 +47,7 @@ function ToShowStaffS() {
     fetch(url,{
       method:`DELETE`,
     })
-    done == true ? setDone(false) : setDone(true);
+    done === true ? setDone(false) : setDone(true);
   }
   // * progress showing
   let  setProgress = async (e,passedId)=>{
@@ -68,7 +68,7 @@ function ToShowStaffS() {
             backEndData.text=response.data.text
             backEndData.style=response.data.style
             backEndData.checkMark=response.data.checkMark
-           done == true ? setDone(false) : setDone(true);
+           done === true ? setDone(false) : setDone(true);
           }).catch((err)=>{
               console.log(err)
           })
@@ -82,7 +82,7 @@ function ToShowStaffS() {
             backEndData.text=response.data.text
             backEndData.style=response.data.style
             backEndData.checkMark=response.data.checkMark
-            done == true ? setDone(false) : setDone(true)
+            done === true ? setDone(false) : setDone(true)
           })
         }
       }
