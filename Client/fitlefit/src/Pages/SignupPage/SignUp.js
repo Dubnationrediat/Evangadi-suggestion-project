@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./SignUp.css";
@@ -61,11 +61,6 @@ const SignUp = () => {
   // ******************************
   let handleChange = (e) => {
     switch (e.target.name) {
-      case "user_first_name":
-        setUserData((pre) => {
-          return { ...pre, user_first_name: e.target.value };
-        });
-        break;
       case "user_last_name":
         setUserData((pre) => {
           return { ...pre, user_last_name: e.target.value };
@@ -95,7 +90,6 @@ const SignUp = () => {
         break;
     }
   };
-  console.log(response);
   // ****************************
   if (response) {
     return (

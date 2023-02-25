@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from 'react-bootstrap/Button'
+
 function ToShowStudentQ() {
   const [student, setStudent] = useState([]);
   const [done, setDone] = useState(true);
@@ -45,7 +45,7 @@ function ToShowStudentQ() {
       fetch(url,{
         method:`DELETE`,
       })
-      done == true ? setDone(false) : setDone(true);
+      done === true ? setDone(false) : setDone(true);
     }
      // * progress showing
   let  setProgress = async (e,passedId)=>{
@@ -66,7 +66,7 @@ function ToShowStudentQ() {
             backEndData.text=response.data.text
             backEndData.style=response.data.style
             backEndData.checkMark=response.data.checkMark
-           done == true ? setDone(false) : setDone(true);
+           done === true ? setDone(false) : setDone(true);
 
           }).catch((err)=>{
               console.log(err)
@@ -81,7 +81,7 @@ function ToShowStudentQ() {
             backEndData.text=response.data.text
             backEndData.style=response.data.style
             backEndData.checkMark=response.data.checkMark
-            done == true ? setDone(false) : setDone(true)
+            done === true ? setDone(false) : setDone(true)
           })
         }
       }

@@ -10,7 +10,7 @@ function Footer() {
     <footer className="footer-wrapper d-md-flex justify-content-around">
     <div className="logo-icon-wrapper">
       <div className="logo">
-        <img src={logo} />
+        <img src={logo} alt = "logo"/>
       </div>
       <div className="Icon">
         <a href="https://www.facebook.com/EthiopiansNetwork">

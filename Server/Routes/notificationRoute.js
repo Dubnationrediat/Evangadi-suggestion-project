@@ -10,7 +10,7 @@ import {checkListOfStudent} from '../Controaller/noticationControler.js'
 import {deleteCheckListOfStudent} from '../Controaller/noticationControler.js'
 import {deleteCheckListOfStaff} from '../Controaller/noticationControler.js'
 
-let notificationRoute = express.Router();
+let notificationRoute = express.Router(); 
 
 notificationRoute.post('/notification',InsertNotification)
 notificationRoute.delete(`/deleteNotification/:id`,deleteNotification)

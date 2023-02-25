@@ -15,10 +15,6 @@ function Home() {
   }).catch((err)=>{
     console.log(err)
   })
-  
-
-
-
   return (
     <div className="home_akafi container">
       <h1 className="text-center py-5 animate__heartBeat">

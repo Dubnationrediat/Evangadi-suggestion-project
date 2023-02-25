@@ -12,25 +12,24 @@ import ToShowStudentQ from './Pages/ShowStudentQuestion/ToShowStudentQ.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import Notification from './Pages/NotificationPage/Notification.js';
-import Home from './Pages/Home/Home.js'
+
 import SignUp from './Pages/SignupPage/SignUp.js';
 import Login from './Pages/LoginPage/Login.js'
 import Update from './Pages/Update/Update.js'
-import ProtectRoute from './components/ProtectRoutes/ProtectRoute';
+
 
 function App() {
   return (
     <div className='wanawAkafi'>
-<Header/>
+
     <Router>
+    <Header/>
       <Routes>
-        <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/home' element={<Home/>}/>
+        <Route exact path='/' element={<Login/>}/>
+        <Route exact path='/home' element={<Login/>}/>
         <Route exact path='/uploadSquestion' element={<FromStudent/>}/>
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
-
-        <Route exact path='/admin' element={ < Admin/>}/>
-
+        <Route exact path='/admin' element={< Admin/>}/>
         <Route exact path='/signup' element={<SignUp/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/answer' element={<Answer/>}/>

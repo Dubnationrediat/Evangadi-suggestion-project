@@ -71,3 +71,20 @@ img{
   color: white !important;
   background-color: #516cf0;
 }
+
+.showSignUp{
+
+    display: block !important;
+}
+
+.hideSignUp{
+    display: none !important ;
+}
+
+.showLogIn{
+    display: block !important;
+}
+
+.hideLogIn{
+    display: none !important;
+}
