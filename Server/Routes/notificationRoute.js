@@ -13,7 +13,9 @@ import {deleteCheckListOfStaff} from '../Controaller/noticationControler.js'
 let notificationRoute = express.Router(); 
 
 notificationRoute.post('/notification',InsertNotification)
+
 notificationRoute.delete(`/deleteNotification/:id`,deleteNotification)
+
 notificationRoute.patch('/updateNotification/:id',updateNotification)
 notificationRoute.get('/allNotifications',getAllNotifications)
 notificationRoute.post('/updateStatuscheckFromStaff',checkListOfStaff)

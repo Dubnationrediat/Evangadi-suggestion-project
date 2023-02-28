@@ -63,14 +63,10 @@ let connectionH = async ()=>{
         }
     })
     }catch(err){
-        console.log("connection not successful ")
+        console.log(`connection not successful error : ${err}`)
     }
 }
 
-
-
 connectionH()
-
-
 
 export default Econnection;

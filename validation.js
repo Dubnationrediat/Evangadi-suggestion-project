@@ -36,4 +36,9 @@ if(!passwordValidator.test(trimmedUserPassword)){
         ...verifiedInfo,
         verified_password:user_password
      }
-}
+};
+
+
+
+
+

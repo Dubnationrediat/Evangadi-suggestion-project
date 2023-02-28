@@ -34,9 +34,9 @@ const Login = () => {
             Don't have an account?<Link to='/signup' className="a3"> Create a new account</Link>
           </p>
           <form onSubmit={(e)=>userSet(e)} >
-            <input className="in1" type="email" name="email"  placeholder="Your Email" autoComplete="new-password" />
+            <input className="in1" type="email" name="email"  placeholder="Your Email" required autoComplete="new-password" />
            
-            <input className="in1" type={type} name="password"  placeholder="Your Password" autoComplete="new-password" />
+            <input className="in1" type={type} name="password"  placeholder="Your Password" required autoComplete="new-password" />
             <span  className="showHide2">
               <Icon icon={icon} size={20} onClick={HandleIconChange} />
             </span>
