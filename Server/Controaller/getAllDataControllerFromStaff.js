@@ -1,6 +1,6 @@
 import Econnection from '../server.js'
 
-let allFromStaff = (req,res,next)=>{
+let allFromStaff = (req,res)=>{
       
     let allDatafromStaff = "SELECT * FROM forquery"
 

@@ -7,7 +7,6 @@ function Header() {
   const [display, setDisplay] = useState('Sign Up');
   const [route, setRoute] = useState('signup');
   
-
   function clickHandler (){
    if(display === 'Sign Up'){
     setRoute('login')
@@ -18,7 +17,6 @@ function Header() {
    }
   }
 
-
   useEffect((e) => {
     if(e && e.preventDefault()){
       clickHandler(e)
@@ -26,7 +24,6 @@ function Header() {
     }
     console.log("use Effect")
   },[route,display])
-
 
   return (
   

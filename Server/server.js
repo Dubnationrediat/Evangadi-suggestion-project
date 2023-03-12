@@ -2,7 +2,7 @@ import mysql from "mysql2";
 import express from "express";
 import dotenv from 'dotenv';
 import createRoute from './Routes/create.js'
-import cors from 'cors'
+import cors from 'cors';
 import queryFromEvangadiToPost from './Routes/queryRoute.js'
 import queryFromStudentToPost from './Routes/SquestionsRoute.js'
 import allDataRouteStudent from './Routes/getAllDataRouteFromStudent.js'
@@ -41,6 +41,7 @@ app.use('/user',checkListStaff)
 app.use('/user',checkListOfStudent)
 app.use('/user',deleteCheckListOfStudent)
 app.use('/user',deleteCheckListOfStaff)
+
 //* create connection info
 let Econnection = mysql.createConnection({
     user:process.env.USER_NAME_FOR_DATABASE,
@@ -48,6 +49,7 @@ let Econnection = mysql.createConnection({
     host:process.env.HOST_FOR_DATABASE,
     database:process.env.DATABASE_NAME
 })
+
 //* create connection
 let connectionH = async ()=>{
     try{

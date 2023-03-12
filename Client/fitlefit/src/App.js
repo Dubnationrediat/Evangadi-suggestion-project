@@ -12,7 +12,7 @@ import ToShowStudentQ from './Pages/ShowStudentQuestion/ToShowStudentQ.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import Notification from './Pages/NotificationPage/Notification.js';
-
+import Home from './Pages/Home/Home.js';
 import SignUp from './Pages/SignupPage/SignUp.js';
 import Login from './Pages/LoginPage/Login.js'
 import Update from './Pages/Update/Update.js'
@@ -26,7 +26,8 @@ function App() {
     <Header/>
       <Routes>
         <Route exact path='/' element={<Login/>}/>
-        <Route exact path='/home' element={<Login/>}/>
+        <Route exact path='/home1' element={<Login/>}/>
+        <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/uploadSquestion' element={<FromStudent/>}/>
         <Route exact path='/uploadEquestions' element={<FromStuff/>}/>
         <Route exact path='/admin' element={< Admin/>}/>

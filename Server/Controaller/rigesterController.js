@@ -1,4 +1,5 @@
 import Econnection from "../server.js";
+import bcrypt from 'bcrypt';
 
 let postUserInfo =(req,res)=>{
 
@@ -14,10 +15,10 @@ const {user_first_name,user_last_name,user_email,user_password,user_name} = req.
  }
 
 //  * user input triming
-let trimed_frist_name = user_first_name.trim();
-let trimed_last_name = user_last_name.trim();
-let trimmedEmail = user_email.trim()
-let trimmedUserPassword = user_password.trim();
+let trimed_frist_name = user_first_name.trim().replace(/\s/g,"");
+let trimed_last_name = user_last_name.trim().replace(/\s/g,"");
+let trimmedEmail = user_email.trim().replace(/\s/g,"")
+let trimmedUserPassword = user_password.trim().replace(/\s/g,"");
 
 // * validators
 let nameValidator = /^[A-Za-z\\s]+$/
@@ -47,14 +48,20 @@ if(!passwordValidator.test(trimmedUserPassword)){
       errorMessage: `password should contain at list  8 digits, one Upper case, One Lower case, and one Special character `
   })
 }else{
-  verifiedInfo ={
-      ...verifiedInfo,
-      verified_password:trimmedUserPassword
-   }
+//    let encryptedPassword =  async ()=>{
+//         let salt = await bcrypt.genSalt();
+//         let hash_password = await bcrypt.hash(trimmedUserPassword,salt);
+//         console.log(hash_password)
+        verifiedInfo ={
+            ...verifiedInfo,
+            verified_password : trimmedUserPassword
+         }
+//   }
+//   encryptedPassword()
 }
 }
 }
-
+// Rediat@1234
     console.log(verifiedInfo)
 
 let createUser =`INSERT INTO userinfo(user_first_name,user_name,user_last_name,user_email,user_password,user_role) VALUES (?)`
