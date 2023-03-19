@@ -21,7 +21,6 @@ import Update from './Pages/Update/Update.js'
 function App() {
   return (
     <div className='wanawAkafi'>
-
     <Router>
     <Header/>
       <Routes>

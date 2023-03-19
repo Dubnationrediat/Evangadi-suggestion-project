@@ -1,5 +1,6 @@
 import Econnection from "../server.js";
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken"
 
 let postUserInfo =(req,res)=>{
 
@@ -62,7 +63,7 @@ if(!passwordValidator.test(trimmedUserPassword)){
 }
 }
 // Rediat@1234
-    console.log(verifiedInfo)
+
 
 let createUser =`INSERT INTO userinfo(user_first_name,user_name,user_last_name,user_email,user_password,user_role) VALUES (?)`
 let value = [verifiedInfo.verified_first_name,user_name,verifiedInfo.verified_last_name,verifiedInfo.verified_email,verifiedInfo.verified_password,0] 
@@ -72,9 +73,24 @@ Econnection.query(createUser,[value],(err)=>{
             errorMessage :"not registered"
         })
     }else{
-      return  res.send({
+        // const cookieOptions = {
+        //     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+        //     //this will be true in the hosting and productions
+        //     secure: false,
+        //     httpOnly: true,
+        //   };
+
+        // res.cookie("token", "7dsbbkj", cookieOptions)
+
+        // let DecodedEmail = jwt.verify(token, "EvangadiSec" )
+        let tokenFromJwt = jwt.sign({email : verifiedInfo.verified_email}, "EvangadiSec", {
+            expiresIn:"3d"
+        })
+        let token = tokenFromJwt
+        res.json({
             forThanking : `Registered successfully,Thank you!`,
-            forHomePageReturn: `Click Here To Go Back To Home Page`
+            forHomePageReturn: `Click Here To Go Back To Home Page`,
+            token:token
         })
        
     }
@@ -82,3 +98,6 @@ Econnection.query(createUser,[value],(err)=>{
 }
 
 export default postUserInfo
+
+
+

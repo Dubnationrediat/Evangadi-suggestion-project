@@ -16,6 +16,7 @@ import checkListStaff from "./Routes/notificationRoute.js"
 import checkListOfStudent from "./Routes/notificationRoute.js"
 import deleteCheckListOfStudent from "./Routes/notificationRoute.js"
 import deleteCheckListOfStaff from "./Routes/notificationRoute.js"
+import cookieParser from "cookie-parser";
 // * config for dotenv
 dotenv.config();
 // * initialize express benefits 
@@ -23,6 +24,8 @@ let app = express();
 //* support middleware
 app.use(express.json()); 
 app.use(express.urlencoded({extended: false }));
+app.use(cookieParser());
+// * static for image
 app.use(express.static("Public/ImageFromStaff/"))
 app.use(express.static("Public/ImageFromStudent/"))
 app.use(cors());

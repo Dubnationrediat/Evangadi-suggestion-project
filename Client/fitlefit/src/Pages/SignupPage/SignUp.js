@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "universal-cookie";
 import "./SignUp.css";
 //to import icons
 import { Icon } from "react-icons-kit";
@@ -9,7 +10,7 @@ import { eye } from "react-icons-kit/feather/eye";
 
 let server = "http://localhost:3456";
 let url = `${server}/user/userInfo`;
-
+const cookies = new Cookies()
 const SignUp = () => {
   const [userData, setUserData] = useState({
     user_first_name: "",
@@ -51,7 +52,13 @@ const SignUp = () => {
       data: userFile,
     })
       .then((data) => {
-        setresponse(data);
+        setresponse(data.data);
+
+     let token = data.data.token
+     cookies.set("token", token, { 
+      path: "/",
+     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000)
+    });
       })
       .catch((err) => {
         console.log(err);
